@@ -1,5 +1,5 @@
 PYTHON ?= python3
-.PHONY: setup pull fetch verify test reproduce doctor index fde-index catalogue catalogue-check provenance rea-install rea-doctor rea-mcp rea-smoke rea-mcp-check rea-native-smoke
+.PHONY: setup pull fetch verify test reproduce doctor index fde-index frame-pointer-survey catalogue catalogue-check provenance rea-install rea-doctor rea-mcp rea-smoke rea-mcp-check rea-native-smoke
 setup:
 	./scripts/setup.sh
 pull:
@@ -25,6 +25,10 @@ index:
 fde-index:
 	$(PYTHON) tools/fde_extents.py --release 94
 	$(PYTHON) tools/fde_extents.py --release 115
+frame-pointer-survey:
+	$(PYTHON) tools/frame_pointer_survey.py --release 94
+	$(PYTHON) tools/frame_pointer_survey.py --release 115
+	$(PYTHON) tools/frame_pointer_survey.py --release visor
 visor-index:
 	$(PYTHON) tools/elf_index.py --release visor
 catalogue:

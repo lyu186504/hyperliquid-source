@@ -1,0 +1,35 @@
+{
+  "binary_sha256": "3b7179cd967d1b13b683e05debfc685ad4c750e918226402d5d575eff1c0459f",
+  "window_bytes": 16,
+  "fde_records": 121299,
+  "unique_fde_starts": 121299,
+  "denominator_fde_records": 121299,
+  "class_counts": {
+    "frame_pointer_immediate": 1536,
+    "frame_pointer_deferred": 7,
+    "push_rbp_first": 28712,
+    "no_frame_pointer_pattern": 91044,
+    "zero_length_extent": 0
+  },
+  "class_extent_bytes": {
+    "frame_pointer_immediate": 1827686,
+    "frame_pointer_deferred": 977,
+    "push_rbp_first": 42316445,
+    "no_frame_pointer_pattern": 25252307,
+    "zero_length_extent": 0
+  },
+  "endbr64_counts": {
+    "endbr64": 9098,
+    "no_endbr64": 112201
+  },
+  "per_section": {
+    ".text": {
+      "frame_pointer_deferred": 7,
+      "frame_pointer_immediate": 1536,
+      "no_frame_pointer_pattern": 91044,
+      "push_rbp_first": 28712
+    }
+  },
+  "classified_rows": 121299,
+  "limitations": "A byte-pattern census, not decoded instructions: the pair 55 48 89 e5 found after the window start can straddle an instruction boundary, so frame_pointer_deferred is a hypothesis checked against the window bytes recorded per row. push_rbp_first means push rbp is the first window instruction (after an optional endbr64) and mov rbp,rsp does not follow it in the window; rbp is then a saved general register, not an established frame pointer. Absence of the pattern does not prove a frameless function: a frame pointer can be established after the window, and code without unwind data has no FDE at all. An FDE extent is the unwind-described range, not a validated function boundary. This census resolves only the RE-002 frame_pointers field; it establishes no other build flag, no component ownership and no equivalence."
+}

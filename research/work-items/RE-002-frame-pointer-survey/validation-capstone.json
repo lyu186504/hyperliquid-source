@@ -1,0 +1,187 @@
+{
+  "method": "Independent cross-check, not part of the contribution tool: capstone 5.0.7 decoded the first instructions at an evenly spaced sample of up to 60 FDE-bounded function starts per class and the decoded stream was compared with the byte-pattern class. The tool itself remains pure standard library.",
+  "targets": {
+    "94": {
+      "class_counts": {
+        "frame_pointer_immediate": 1536,
+        "frame_pointer_deferred": 7,
+        "push_rbp_first": 28712,
+        "no_frame_pointer_pattern": 91044,
+        "zero_length_extent": 0
+      },
+      "unique_fde_starts": 121299,
+      "validation": {
+        "frame_pointer_immediate": {
+          "sampled": 60,
+          "agree": 60,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "frame_pointer_deferred": {
+          "sampled": 7,
+          "agree": 6,
+          "mismatch": 1,
+          "undecidable": 0,
+          "mismatch_examples": [
+            [
+              "0x1574280",
+              "cmp rsi, 0xf jbe 0xc mov al, 1 mov cl, 1"
+            ]
+          ]
+        },
+        "push_rbp_first": {
+          "sampled": 60,
+          "agree": 60,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "no_frame_pointer_pattern": {
+          "sampled": 60,
+          "agree": 58,
+          "mismatch": 2,
+          "undecidable": 0,
+          "mismatch_examples": [
+            [
+              "0x5091970",
+              "endbr64 push r15 push r14 push r13"
+            ],
+            [
+              "0x5313fb0",
+              "endbr64 push r15 push r14 push r13"
+            ]
+          ]
+        },
+        "zero_length_extent": {
+          "sampled": 0,
+          "agree": 0,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        }
+      }
+    },
+    "115": {
+      "class_counts": {
+        "frame_pointer_immediate": 1142,
+        "frame_pointer_deferred": 7,
+        "push_rbp_first": 37633,
+        "no_frame_pointer_pattern": 96531,
+        "zero_length_extent": 0
+      },
+      "unique_fde_starts": 135313,
+      "validation": {
+        "frame_pointer_immediate": {
+          "sampled": 60,
+          "agree": 60,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "frame_pointer_deferred": {
+          "sampled": 7,
+          "agree": 6,
+          "mismatch": 1,
+          "undecidable": 0,
+          "mismatch_examples": [
+            [
+              "0x1687620",
+              "cmp rsi, 0xf jbe 0xc mov al, 1 mov cl, 1"
+            ]
+          ]
+        },
+        "push_rbp_first": {
+          "sampled": 60,
+          "agree": 60,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "no_frame_pointer_pattern": {
+          "sampled": 60,
+          "agree": 57,
+          "mismatch": 3,
+          "undecidable": 0,
+          "mismatch_examples": [
+            [
+              "0x4373190",
+              "lea rax, [rdx - 1] cmp rax, rsi jae 0x109 cmp rdx, rsi"
+            ],
+            [
+              "0x5db6530",
+              "endbr64 push r12 movabs r12, 0x3fffffffffffffff push rbp"
+            ],
+            [
+              "0x615ef70",
+              "endbr64 push r15 push r14 push r13"
+            ]
+          ]
+        },
+        "zero_length_extent": {
+          "sampled": 0,
+          "agree": 0,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        }
+      }
+    },
+    "visor": {
+      "class_counts": {
+        "frame_pointer_immediate": 657,
+        "frame_pointer_deferred": 7,
+        "push_rbp_first": 2261,
+        "no_frame_pointer_pattern": 8103,
+        "zero_length_extent": 0
+      },
+      "unique_fde_starts": 11028,
+      "validation": {
+        "frame_pointer_immediate": {
+          "sampled": 60,
+          "agree": 60,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "frame_pointer_deferred": {
+          "sampled": 7,
+          "agree": 7,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "push_rbp_first": {
+          "sampled": 60,
+          "agree": 60,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        },
+        "no_frame_pointer_pattern": {
+          "sampled": 60,
+          "agree": 58,
+          "mismatch": 2,
+          "undecidable": 0,
+          "mismatch_examples": [
+            [
+              "0x706010",
+              "endbr64 push r15 push r14 push r13"
+            ],
+            [
+              "0x7243a0",
+              "push r15 push r14 push r13 push r12"
+            ]
+          ]
+        },
+        "zero_length_extent": {
+          "sampled": 0,
+          "agree": 0,
+          "mismatch": 0,
+          "undecidable": 0,
+          "mismatch_examples": []
+        }
+      }
+    }
+  }
+}

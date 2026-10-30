@@ -139,11 +139,16 @@ This plan describes the build for anyone who has the source. It has not been run
 | `codegen_units` | Function order and partitioning in a matched rebuild |
 | `overflow_checks` | Callers of the core overflow panic helpers inside first-party code |
 | `target_cpu_features` | Unconditional AVX or BMI use outside runtime-dispatched paths |
-| `frame_pointers` | A prologue survey over FDE-bounded functions |
 | `rustflags` | The original build config |
 | `cargo_lock` | The original `Cargo.lock`. Paths give versions for #94 registry crates and only 18 of 131 vendored #115 directories |
 | `first_party_crate_versions` | First-party paths carry no versions |
 | `panic_strategy` (visor only) | Map LSDA owners to Rust functions |
+
+### Resolved fields
+
+| Field | Resolution |
+| --- | --- |
+| `frame_pointers` | [`RE-002-frame-pointer-survey`](../RE-002-frame-pointer-survey/README.md): a 16-byte prologue census over all FDE-bounded functions in #94, #115 and the visor. All three targets were built without forced frame pointers; 0.84% (#115) to 5.96% (visor) of functions open with `push rbp; mov rbp,rsp`. |
 
 Two more questions are open:
 
